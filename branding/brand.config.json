@@ -1,0 +1,10 @@
+{
+  "$comment": "The one place for the tool's name strings (working name; hq#45, hq#74). To rename: change `product` here, `name` in brand.yaml and the <text> in wordmark.svg.",
+  "product": {
+    "id": "archmap",
+    "name": { "en": "archmap" },
+    "wordmark": { "en": "archmap" },
+    "descriptor": { "en": "architecture as a checked map" },
+    "tagline": { "en": "Architecture as a checked map." }
+  }
+}

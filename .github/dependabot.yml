@@ -1,0 +1,16 @@
+# Keeps the SHA pins of the workflow actions and the hook revisions current. Version updates wait 7 days after a
+# release (the cooldown); security updates bypass it.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+  - package-ecosystem: pre-commit
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7

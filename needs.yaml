@@ -1,0 +1,13 @@
+# needs.yaml: what this repo needs, by context. Convention: HQ practices/needs-by-context.md (v1).
+# contexts: run | develop | test | ci | release.  level: required | optional.  Never a secret value.
+# A seed repo of docs and branding: nothing runs here yet (the code lives in HQ until format atlas/1), no CI workflow.
+version: 1
+needs:
+  - {kind: tool, name: git, contexts: [develop], level: required, why: "version control and worktrees",
+     check: command, fix: install git}
+  - {kind: tool, name: uv, contexts: [develop], level: required, why: "runs scripts/needs.py, the needs checker",
+     check: command, fix: "curl -LsSf https://astral.sh/uv/install.sh | sh"}  # bulwark:ignore agent-pipe-to-shell install hint text, never run by a script
+  - {kind: tool, name: gh, contexts: [develop], level: optional, fallback: "use the GitHub web UI",
+     why: "issues and pull requests", check: command, fix: "install GitHub CLI, then: gh auth login"}
+  - {kind: tool, name: claude, contexts: [develop], level: optional, fallback: "edit by hand without agent sessions",
+     why: "Claude Code is the agent that works in this repo", check: command, fix: "https://claude.com/claude-code"}

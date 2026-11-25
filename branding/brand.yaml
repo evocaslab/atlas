@@ -1,0 +1,59 @@
+# Brand source of truth for archmap (working name; the public name is not final, hq#45, hq#74).
+# The display name lives in `name` below and in brand.config.json; wordmark.svg repeats it as text.
+# Prose and rules: ../docs/brand.md. Asset notes: README.md.
+schema: 1
+
+languages:
+  - {code: en, label: Eng, name: English}
+default_language: en
+
+name:
+  en: archmap
+tagline:
+  en: Architecture as a checked map.
+mission:
+  en: Keeps a text model of a codebase's architecture next to the code, checks it against the code, and exports diagrams.
+vision:
+  en: Every repo has an architecture map that an agent reads before it changes the code and that fails a check when it drifts.
+
+roles:
+  paper:          {light: "#F3F5F4", dark: "#0E1513", meaning: {en: Page background}}
+  surface:        {light: "#FFFFFF", dark: "#16201C", meaning: {en: "Cards, inputs"}}
+  surface-sunken: {light: "#E3E9E6", dark: "#1F2B26", meaning: {en: Sunken surface}}
+  ink:            {light: "#14201C", dark: "#E6EFEC", meaning: {en: Body text and the mark}}
+  muted:          {light: "#4A5A54", dark: "#A8B8B2", meaning: {en: Secondary text}}
+  border-strong:  {light: "#6F7F79", dark: "#7F918A", meaning: {en: Input and control borders}}
+  primary:        {light: "#0F7B6C", dark: "#3EC9B0", meaning: {en: "The one accent: the filled node, buttons"}}
+  on-primary:     {light: "#FFFFFF", dark: "#08201B", meaning: {en: Text on the accent}}
+  primary-text:   {light: "#0B6357", dark: "#6FDCC8", meaning: {en: "Links and accent labels"}}
+  focus:          {light: "#14201C", dark: "#E6EFEC", meaning: {en: Keyboard focus ring}}
+
+pairs:
+  - {fg: ink, bg: paper, kind: text, level: aaa, use: Body text on the page}
+  - {fg: ink, bg: surface, kind: text, level: aa, use: Body text on a card}
+  - {fg: muted, bg: paper, kind: text, level: aa, use: Secondary text on the page}
+  - {fg: primary-text, bg: paper, kind: text, level: aa, use: Link on the page}
+  - {fg: on-primary, bg: primary, kind: text, level: aa, use: Button label on the accent}
+  - {fg: border-strong, bg: paper, kind: ui, level: aa, use: Input border on the page}
+  - {fg: focus, bg: paper, kind: ui, level: aa, use: Focus ring on the page}
+  - {fg: primary, bg: paper, kind: ui, level: aa, use: Accent fill on the page}
+
+# Fonts come from Google Fonts for now (not self-hosted yet; both OFL-1.1).
+fonts:
+  display:
+    family: Space Mono
+    fallback: [ui-monospace, SFMono-Regular, Menlo, Consolas, monospace]
+    license: OFL-1.1
+    note: Wordmark and headings (Bold).
+  body:
+    family: Source Sans 3
+    fallback: [system-ui, Segoe UI, Roboto, Noto Sans, sans-serif]
+    license: OFL-1.1
+    note: Running text.
+
+assets:
+  - {id: mark, form: mark, path: mark.svg, mono: false, label: {en: Mark}}
+  - {id: animated-mark, form: mark, path: mark-animated.svg, mono: false, label: {en: Animated mark}}
+  - {id: small-mark, form: small-mark, path: favicon.svg, mono: false, label: {en: Small mark (16 to 32 px)}}
+  - {id: app-icon, form: app-icon, path: app-icon.svg, mono: false, label: {en: App icon}}
+  - {id: lockup, form: lockup, path: wordmark.svg, dark: false, mono: false, label: {en: Wordmark}}

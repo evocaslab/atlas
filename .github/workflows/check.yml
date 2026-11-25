@@ -1,0 +1,33 @@
+# The gate on every push, pull request and merge-queue group: the prek hooks on all files (the same as `just q-check`).
+# Runs on a GitHub-hosted runner only. The job name `gate` is the required status check of the ruleset on `main`.
+# Actions are pinned by full commit SHA (Dependabot updates the pin and the version comment together).
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  merge_group:
+
+permissions: {}
+
+# A newer push to a pull request cancels its older run; runs on `main` and in the merge queue always finish.
+concurrency:
+  group: check-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      - name: Run the hooks
+        run: uvx prek@0.5.10 run --all-files
+      - name: No fixer changed a file
+        run: git diff --exit-code

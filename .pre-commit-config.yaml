@@ -1,0 +1,31 @@
+# Hooks run by prek; `just q-check` runs them on every file (the one gate).
+default_install_hook_types: [pre-commit]
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-merge-conflict
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: check-added-large-files
+        args: [--maxkb=1024]
+  - repo: local
+    hooks:
+      - id: needs-lint
+        name: needs.yaml is valid
+        entry: uv run --script scripts/needs.py lint
+        language: system
+        pass_filenames: false
+        files: ^(needs\.yaml|scripts/needs\.py)$
+      - id: needs-render
+        name: README needs table is current
+        entry: uv run --script scripts/needs.py render --check
+        language: system
+        pass_filenames: false
+        files: ^(needs\.yaml|README\.md|scripts/needs\.py)$
