@@ -1,12 +1,12 @@
 {
-  "$comment": "The one place for the tool's name strings (name `atlas` for now, R-2611251529-8a7d; may change before the first release). To rename: change `product` here, `name` in brand.yaml and the <text> in wordmark.svg. `binary` is open until the first release (another `atlas` CLI exists).",
+  "$comment": "The one place for the tool's name strings (name `atlas` for now, R-2611251529-8a7d; may change before the first release). To rename: change `product` here, `name` in brand.yaml and the <text> in wordmark.svg. `binary` is decided: `evocaslab-atlas` (R-2611251919-6aa1; it avoids Ariga's `atlas` CLI); the code in HQ keeps the binary `atlas` until it moves here.",
   "product": {
     "id": "atlas",
     "name": { "en": "atlas" },
     "wordmark": { "en": "atlas" },
     "descriptor": { "en": "architecture, checked against the code" },
     "tagline": { "en": "Architecture, checked against the code." },
-    "binary": "atlas",
+    "binary": "evocaslab-atlas",
     "packages": {
       "crates.io": "evocaslab-atlas",
       "pypi": "evocaslab-atlas",
