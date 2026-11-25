@@ -1,4 +1,4 @@
-# Atlas format `atlas/0` and the `atlas` CLI
+# Atlas format `atlas/0` and the `evocaslab-atlas` CLI
 
 Status: implemented in `crates/atlas` (in [evocaslab/hq](https://github.com/evocaslab/hq) until the move). Design and
 reasoning: [architecture-workbench.md](https://github.com/evocaslab/hq/blob/main/docs/design/architecture-workbench.md); prior art and the first format draft:
@@ -46,16 +46,16 @@ rule. Compose and `infra/services.yaml` files that `check-tags` reads keep the l
 
 | Command | What it does |
 | --- | --- |
-| `atlas check [dir] [--strict] [--repo-root p] [--services f]` | the drift hook in one command: `validate`, `check-tags` and the cross-context drift check (every undeclared coupling is an error); one exit code, so one hook line in any repo |
-| `atlas init [repo] [-o dir] [--name n] [--force]` | drafts a first model of a repo (see "Draft a first model"); writes `<repo>/docs/atlas` with `draft: true` |
-| `atlas query depends-on\|used-by\|impact <id> [dir] [--json]` | what `<id>` reaches through relations, what reaches it, or what a change to it (and its children) can break; transitive, sorted by id, `id (kind, name)` per line |
-| `atlas summary <view> [dir]` | a short text for one view: title, members with kind, tech and parent, and the relations among them; read it before changing the code a view covers |
-| `atlas diff <rev-a> <rev-b> [dir] [--json] [--render <out-dir>]` | added, removed and changed elements, relations and views between two git revisions of the workspace folder (blobs read from git, no checkout); `changed views` are the views whose definition, members or relations differ; `--render` writes only those, from `rev-b`, as `<out-dir>/<view>.svg` |
-| `atlas validate [dir] [--strict]` | ids, file names, duplicates, references, parent cycles, relation id shape, view predicates, layouts, import aliases, exports |
-| `atlas check-tags [dir] [--strict] [--repo-root p] [--services f]` | resolves source tags against the real repo; warns for code a view `covers` that has no element |
-| `atlas export mermaid [dir] [--view id]` | one flowchart per view (the repo's colour classes) |
-| `atlas export likec4 [dir] [--view id]` | one `.c4` file: specification, model, relations, views |
-| `atlas export hq-diagram <view> [dir] [-o file]` | one view as an `hq-diagram` model YAML (render it with `hq-diagram render`) |
+| `evocaslab-atlas check [dir] [--strict] [--repo-root p] [--services f]` | the drift hook in one command: `validate`, `check-tags` and the cross-context drift check (every undeclared coupling is an error); one exit code, so one hook line in any repo |
+| `evocaslab-atlas init [repo] [-o dir] [--name n] [--force]` | drafts a first model of a repo (see "Draft a first model"); writes `<repo>/docs/atlas` with `draft: true` |
+| `evocaslab-atlas query depends-on\|used-by\|impact <id> [dir] [--json]` | what `<id>` reaches through relations, what reaches it, or what a change to it (and its children) can break; transitive, sorted by id, `id (kind, name)` per line |
+| `evocaslab-atlas summary <view> [dir]` | a short text for one view: title, members with kind, tech and parent, and the relations among them; read it before changing the code a view covers |
+| `evocaslab-atlas diff <rev-a> <rev-b> [dir] [--json] [--render <out-dir>]` | added, removed and changed elements, relations and views between two git revisions of the workspace folder (blobs read from git, no checkout); `changed views` are the views whose definition, members or relations differ; `--render` writes only those, from `rev-b`, as `<out-dir>/<view>.svg` |
+| `evocaslab-atlas validate [dir] [--strict]` | ids, file names, duplicates, references, parent cycles, relation id shape, view predicates, layouts, import aliases, exports |
+| `evocaslab-atlas check-tags [dir] [--strict] [--repo-root p] [--services f]` | resolves source tags against the real repo; warns for code a view `covers` that has no element |
+| `evocaslab-atlas export mermaid [dir] [--view id]` | one flowchart per view (the repo's colour classes) |
+| `evocaslab-atlas export likec4 [dir] [--view id]` | one `.c4` file: specification, model, relations, views |
+| `evocaslab-atlas export hq-diagram <view> [dir] [-o file]` | one view as an `hq-diagram` model YAML (render it with `hq-diagram render`) |
 
 The default `dir` is `docs/atlas`. Exit codes: 0 clean, 1 errors (or warnings with `--strict`, or an unreadable
 workspace), 2 bad arguments. Export refuses to run while `validate` has errors. Every message names the file and the
@@ -70,19 +70,19 @@ to three levels deep). `table` and `symbol` are counted as not checkable yet.
 
 Short answers an agent reads before it changes code; they need a model that passes `validate`.
 
-- `atlas query <depends-on|used-by|impact> <id> [dir] [--json]`: `depends-on` follows relations out of `<id>`, `used-by`
+- `evocaslab-atlas query <depends-on|used-by|impact> <id> [dir] [--json]`: `depends-on` follows relations out of `<id>`, `used-by`
   follows them into it, `impact` is everything that reaches `<id>` or any of its children (the subtree itself left out).
   All are transitive and sorted by id; text prints `id (kind, name)` per line, `--json` an object with `question`, `id` and
   `found` (a list of `id`, `kind`, `name`, `tech`). An unknown id is an error that lists some ids that exist.
-- `atlas summary <view> [dir]`: title, members (kind, tech, parent) and the relations among them for one view.
-- `atlas diff <rev-a> <rev-b> [dir] [--json] [--render <out-dir>]`: compares the workspace folder at two git revisions,
+- `evocaslab-atlas summary <view> [dir]`: title, members (kind, tech, parent) and the relations among them for one view.
+- `evocaslab-atlas diff <rev-a> <rev-b> [dir] [--json] [--render <out-dir>]`: compares the workspace folder at two git revisions,
   reading blobs from git (no checkout), and lists added, removed and changed elements, relations and views. A view is
   changed when its definition, its members or their relations differ. `--render` writes only the changed views, from
   `rev-b`, as `<out-dir>/<view>.svg`, for a landing note or PR description.
 
-## Drift check (`atlas check`)
+## Drift check (`evocaslab-atlas check`)
 
-`atlas check [dir]` runs three checks with one exit code, so a repo needs one hook line (and, if it wants, one CI job):
+`evocaslab-atlas check [dir]` runs three checks with one exit code, so a repo needs one hook line (and, if it wants, one CI job):
 `validate` (the model), `check-tags` (every source tag points at something real; the repo root is the nearest parent
 with a `.git`, or `--repo-root`) and the cross-context drift check (code that refers from one context to another with no
 relation; it finds nothing in a model without `context` elements). Errors and warnings go to stderr, one summary line to
@@ -93,18 +93,20 @@ repos:
   - repo: local
     hooks:
       - id: atlas-check
-        name: atlas check (model, tags, drift)
-        entry: atlas check docs/atlas
+        name: evocaslab-atlas check (model, tags, drift)
+        entry: evocaslab-atlas check docs/atlas
         language: system
         files: ^(docs/atlas/|crates/|src/|Cargo\.(toml|lock)$|(docker-)?compose[^/]*\.ya?ml$)
         pass_filenames: false
 ```
 
-CI: `cargo install --locked --git <HQ repo URL> --package atlas`, then `atlas check docs/atlas --strict`.
+CI: `cargo install --locked --git <HQ repo URL> --package evocaslab-atlas`, then `evocaslab-atlas check docs/atlas --strict`.
+Until the code moves here, it lives in HQ, where the package and the binary are still `atlas`
+(`--package atlas`, then `atlas check ...`).
 
-## Draft a first model (`atlas init`)
+## Draft a first model (`evocaslab-atlas init`)
 
-`atlas init [repo] [-o dir] [--name n] [--force]` reads a repo and writes a first model to `<repo>/docs/atlas` (or `-o`):
+`evocaslab-atlas init [repo] [-o dir] [--name n] [--force]` reads a repo and writes a first model to `<repo>/docs/atlas` (or `-o`):
 
 - **Cargo workspace:** `[workspace] members` of the root `Cargo.toml` (`dir/*` expands to folders with a `Cargo.toml`; a
   root `[package]` is a member too). A member with `src/main.rs` or `src/bin` is a `container`, others are `component`s;
@@ -129,7 +131,7 @@ and dependencies through workspace inheritance are not read.
 
 ## hq-diagram export
 
-`atlas export hq-diagram <view>` writes a model that `hq-diagram validate` accepts (a test loads every sample view with
+`evocaslab-atlas export hq-diagram <view>` writes a model that `hq-diagram validate` accepts (a test loads every sample view with
 its loader and renders it). Mapping:
 
 - A member that has members inside it becomes a `groups:` frame (nested by `parent`); relations that end at it are not
