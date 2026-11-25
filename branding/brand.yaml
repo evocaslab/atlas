@@ -1,5 +1,6 @@
-# Brand source of truth for archmap (working name; the public name is not final, hq#45, hq#74).
-# The display name lives in `name` below and in brand.config.json; wordmark.svg repeats it as text.
+# Brand source of truth for atlas (name for now, R-2611251529-8a7d; may change before the first release).
+# The display name lives in `name` below and in brand.config.json (with the package and binary names);
+# wordmark.svg repeats it as text.
 # Prose and rules: ../docs/brand.md. Asset notes: README.md.
 schema: 1
 
@@ -8,9 +9,9 @@ languages:
 default_language: en
 
 name:
-  en: archmap
+  en: atlas
 tagline:
-  en: Architecture as a checked map.
+  en: Architecture, checked against the code.
 mission:
   en: Keeps a text model of a codebase's architecture next to the code, checks it against the code, and exports diagrams.
 vision:

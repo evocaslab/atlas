@@ -1,11 +1,11 @@
 ---
-name: archmap
+name: atlas
 description: Read and keep an architecture model (atlas/0 YAML files next to the code) before changing a repo. Use when a repo has an atlas workspace (atlas.yaml, elements/, relations/, views/) or the user asks where a part lives or what depends on what.
 ---
 
-# archmap
+# atlas
 
-archmap keeps a text model of a repo's elements (boxes) and relations (arrows) as YAML next to the code. Read it before
+atlas keeps a text model of a repo's elements (boxes) and relations (arrows) as YAML next to the code. Read it before
 you change code; update it in the same change when you add, move or remove a part.
 
 Status: seed. The `atlas` CLI is built from the evocaslab/hq repository until the code moves into this repo; format

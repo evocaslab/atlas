@@ -1,6 +1,6 @@
 # Architecture
 
-archmap turns a text model of a system into checked facts and diagrams. Three parts, one workspace once the code moves
+atlas turns a text model of a system into checked facts and diagrams. Three parts, one workspace once the code moves
 here ([extraction plan](extraction.md)); words are defined in [boundaries.md](boundaries.md).
 
 ```mermaid

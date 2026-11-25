@@ -1,7 +1,7 @@
-# Archmap branding (working name)
+# atlas branding
 
-The name is not final (hq#45, `B-261107-atlas-open-and-naming`); the mark is: the maintainer chose the **node map**
-(R-2611071421-75b4, R-2611071422-e6c5). Replace "archmap" in `wordmark.svg` if the name changes; the mark has no text.
+The name is `atlas` for now (R-2611251529-8a7d; may change before the first release); the mark is final: the maintainer
+chose the **node map** (R-2611071421-75b4, R-2611071422-e6c5). Replace "atlas" in `wordmark.svg` if the name changes; the mark has no text.
 
 | File | Use |
 | --- | --- |

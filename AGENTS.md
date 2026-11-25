@@ -1,6 +1,6 @@
-# archmap: instructions for AI agents
+# atlas: instructions for AI agents
 
-Seed repo for the architecture-model tool (working name, hq#45). Read [README.md](README.md) and [docs/extraction.md](docs/extraction.md).
+Seed repo for the architecture-model tool (name `atlas` for now, R-2611251529-8a7d). Read [README.md](README.md) and [docs/extraction.md](docs/extraction.md).
 
 - General practices live in HQ (`~/dev/hq/practices/`, index `README.md`); this repo's rules win where they differ.
 - Until the code moves here, change the crates in HQ, not in this repo.

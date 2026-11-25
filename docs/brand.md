@@ -1,6 +1,8 @@
-# Brand book: archmap
+# Brand book: atlas
 
-Working name: the public name is not final (hq#45, decided in hq#74). The name is one value, in
+Name: `atlas`, for now (R-2611251529-8a7d); the maintainer may still rename it before the first release. Tagline:
+"Architecture, checked against the code." Public package names carry the umbrella prefix (`evocaslab-atlas`,
+`@evocaslab/atlas`); the binary name is open until the first release. The name is one value, in
 [branding/brand.yaml](../branding/brand.yaml) and `brand.config.json`; colours, fonts and assets are there too. Asset
 files and usage rules: [branding/README.md](../branding/README.md). Legal use of the name and logo:
 [TRADEMARKS.md](../TRADEMARKS.md).

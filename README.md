@@ -1,14 +1,16 @@
-# archmap (working name)
+# atlas
 
-Architecture as a checked map: a text model of elements and relations kept as YAML files next to the code, validated against the
+Architecture, checked against the code: a text model of elements and relations kept as YAML files next to the code, validated against the
 real repo, and exported to diagrams. Built for AI-assisted development: an agent reads the model before it changes the code, and a
 check is meant to fail when the model and the code drift apart (not wired into a gate yet; see
 [docs/format.md](docs/format.md#not-done)).
 
 Status: seed. The code still lives in [evocaslab/hq](https://github.com/evocaslab/hq) (`crates/atlas`, `crates/hq-diagram`,
-`crates/hq-diagram-wasm`); it moves here at format `atlas/1` ([extraction plan](docs/extraction.md)). The name is not final
-(hq#45; decided in hq#74: `atlas` stays the internal name, `quadmap` is the public candidate, no rename before a public
-release); the mark is chosen (`branding/`).
+`crates/hq-diagram-wasm`); it moves here at format `atlas/1` ([extraction plan](docs/extraction.md)). Name: `atlas`, for now (R-2611251529-8a7d; the
+maintainer may still rename it before the first release). Public package names carry the umbrella prefix:
+`evocaslab-atlas` on crates.io and PyPI, `@evocaslab/atlas` on npm. The binary name is open until the first release
+(another `atlas` CLI exists); it is one value in [branding/brand.config.json](branding/brand.config.json). The mark is
+chosen (`branding/`). The history before 2026-11-25 is kept in a private archive repo.
 
 ## Quick start
 
@@ -28,8 +30,8 @@ built and run from HQ.
 
 ## Use with AI agents
 
-The repo ships one agent skill, [skills/archmap/SKILL.md](skills/archmap/SKILL.md): how an agent reads the model before a
-change and updates it with the change. It runs no scripts and fetches nothing. Copy the `skills/archmap` folder into your
+The repo ships one agent skill, [skills/atlas/SKILL.md](skills/atlas/SKILL.md): how an agent reads the model before a
+change and updates it with the change. It runs no scripts and fetches nothing. Copy the `skills/atlas` folder into your
 agent's skills directory (for Claude Code, `.claude/skills/`) to use it. This repo's own rules for agents are in
 [AGENTS.md](AGENTS.md).
 

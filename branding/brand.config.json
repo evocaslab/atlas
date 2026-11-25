@@ -1,10 +1,16 @@
 {
-  "$comment": "The one place for the tool's name strings (working name; hq#45, hq#74). To rename: change `product` here, `name` in brand.yaml and the <text> in wordmark.svg.",
+  "$comment": "The one place for the tool's name strings (name `atlas` for now, R-2611251529-8a7d; may change before the first release). To rename: change `product` here, `name` in brand.yaml and the <text> in wordmark.svg. `binary` is open until the first release (another `atlas` CLI exists).",
   "product": {
-    "id": "archmap",
-    "name": { "en": "archmap" },
-    "wordmark": { "en": "archmap" },
-    "descriptor": { "en": "architecture as a checked map" },
-    "tagline": { "en": "Architecture as a checked map." }
+    "id": "atlas",
+    "name": { "en": "atlas" },
+    "wordmark": { "en": "atlas" },
+    "descriptor": { "en": "architecture, checked against the code" },
+    "tagline": { "en": "Architecture, checked against the code." },
+    "binary": "atlas",
+    "packages": {
+      "crates.io": "evocaslab-atlas",
+      "pypi": "evocaslab-atlas",
+      "npm": "@evocaslab/atlas"
+    }
   }
 }
