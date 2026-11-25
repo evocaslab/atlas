@@ -8,8 +8,9 @@ check is meant to fail when the model and the code drift apart (not wired into a
 Status: seed. The code still lives in [evocaslab/hq](https://github.com/evocaslab/hq) (`crates/atlas`, `crates/hq-diagram`,
 `crates/hq-diagram-wasm`); it moves here at format `atlas/1` ([extraction plan](docs/extraction.md)). Name: `atlas`, for now (R-2611251529-8a7d; the
 maintainer may still rename it before the first release). Public package names carry the umbrella prefix:
-`evocaslab-atlas` on crates.io and PyPI, `@evocaslab/atlas` on npm. The binary name is open until the first release
-(another `atlas` CLI exists); it is one value in [branding/brand.config.json](branding/brand.config.json). The mark is
+`evocaslab-atlas` on crates.io and PyPI, `@evocaslab/atlas` on npm. The binary (command) is `evocaslab-atlas`
+(R-2611251919-6aa1; it avoids Ariga's `atlas` CLI); it is one value in [branding/brand.config.json](branding/brand.config.json).
+The code built from HQ still installs the binary `atlas` until it moves here. The mark is
 chosen (`branding/`). The history before 2026-11-25 is kept in a private archive repo.
 
 ## Quick start

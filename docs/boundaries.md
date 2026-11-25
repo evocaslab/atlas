@@ -2,7 +2,7 @@
 
 Two contexts share this tool, and a few words mean different things in each. Name code and docs by the context's meaning
 ([HQ service boundaries](https://github.com/evocaslab/hq/blob/main/practices/service-boundaries.md)). Nothing is split: both
-live in one workspace and meet at one published language, the `hq-diagram` model YAML (`atlas export hq-diagram`).
+live in one workspace and meet at one published language, the `hq-diagram` model YAML (`evocaslab-atlas export hq-diagram`).
 
 | Word | In the model (`atlas`, format `atlas/0`) | In the renderer (`hq-diagram`) |
 | --- | --- | --- |
