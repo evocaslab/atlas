@@ -1,7 +1,7 @@
 # Name and logo
 
 The name "atlas" (as used for this project, with the logo) and the logo files in `branding/` are trademarks and
-artwork of Evocaslab. The licences of this repository do not grant any right to use them.
+artwork of EvoCASLab. The licences of this repository do not grant any right to use them.
 
 **You may, without asking:**
 
