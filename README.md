@@ -28,6 +28,8 @@ built and run from HQ.
 + [Format](docs/format.md): the `atlas/0` model and the CLI (`validate`, `check-tags`, `check`, `init`, `query`, `summary`, `diff`, `export mermaid|likec4|hq-diagram`).
 + [Architecture](docs/architecture.md) and [user stories](docs/user-stories.md): the parts and who uses them.
 + [Branding](branding/README.md): node-map mark, animated mark, colours, type; [brand book](docs/brand.md) and [brand.yaml](branding/brand.yaml).
++ [Contributing](CONTRIBUTING.md) and [security policy](SECURITY.md). CI runs the gate on every pull request:
+  [![check](https://github.com/evocaslab/atlas/actions/workflows/check.yml/badge.svg?branch=main)](https://github.com/evocaslab/atlas/actions/workflows/check.yml).
 
 ## Use with AI agents
 

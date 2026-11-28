@@ -15,6 +15,11 @@ repos:
       - id: check-shebang-scripts-are-executable
       - id: check-added-large-files
         args: [--maxkb=1024]
+  # Audits the workflows and dependabot.yml (pins, permissions, dangerous triggers, template injection).
+  - repo: https://github.com/zizmorcore/zizmor-pre-commit
+    rev: v1.32.0
+    hooks:
+      - id: zizmor
   - repo: local
     hooks:
       - id: needs-lint
